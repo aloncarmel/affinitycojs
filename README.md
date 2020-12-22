@@ -8,3 +8,9 @@ var config = { apikey : 'myapikey' };
 var affinityclient = new affinitycojs(config);
 
 var mylists = await affinityclient.getAllLists();
+
+# Available methods
+getAllLists();
+getList(listid);
+getListEntries(listid);
+getListEntry(entryid);
