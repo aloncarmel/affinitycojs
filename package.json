@@ -1,6 +1,6 @@
 {
   "name": "affinitycojs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Affinity.co Javascript API Wrapper",
   "main": "index.js",
   "dependencies": {
