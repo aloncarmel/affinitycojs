@@ -1,6 +1,6 @@
 {
   "name": "affinitycojs",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Affinity.co Javascript API Wrapper",
   "main": "index.js",
   "dependencies": {
@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/aloncarmel/affinitycojs/issues"
   },
-  "homepage": "https://github.com/aloncarmel/affinitycojs#readme"
+  "homepage": "https://github.com/aloncarmel/affinitycojs#readme",
+  "keywords": []
 }

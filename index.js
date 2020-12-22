@@ -11,37 +11,45 @@ class AffinitycoJs {
     constructor(config) {
         this.apikey = config.apikey;
         this.apiurl = 'https://api.affinity.co';
-        this.auth = {
-            auth: {
-                username: '',
-                password: this.apikey
-            }
-        };
+        this.token = Buffer.from(`:${this.apikey}`, 'utf8').toString('base64');
     }
     async getAllLists() {
         var _self = this;
         return new Promise(function (resolve, reject) {
-            
-            axios.get(_self.apiurl+'/lists', {}, _self.auth)
-                .then(function(response) {
-                    resolve(response);
-                }).catch(function(error) {
-                    reject(error);
-                });
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/lists',
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
-        });
+    });
 
     }
     async getList(listid) {
         var _self = this;
         return new Promise(function (resolve, reject) {
         
-            axios.get(_self.apiurl+'/lists/'+listid, {}, _self.auth)
-                .then(function(response) {
-                    resolve(response);
-                }).catch(function(error) {
-                    reject(error);
-                });
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/lists/'+listid,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
+
+
 
         });
 
@@ -49,13 +57,20 @@ class AffinitycoJs {
     async getListEntries(listid) {
         var _self = this;
         return new Promise(function (resolve, reject) {
+         
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/lists/'+listid+'/list-entries',
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
         
-            axios.get(_self.apiurl+'/lists/'+listid+'/list-entries', {}, _self.auth)
-                .then(function(response) {
-                    resolve(response);
-                }).catch(function(error) {
-                    reject(error);
-                });
 
         });
 
@@ -63,13 +78,19 @@ class AffinitycoJs {
     getListEntry(entryid) {
         var _self = this;
         return new Promise(function (resolve, reject) {
-        
-            axios.get(_self.apiurl+'/lists/'+listid+'/list-entries/'+entryid, {}, _self.auth)
-                .then(function(response) {
-                    resolve(response);
-                }).catch(function(error) {
-                    reject(error);
-                });
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/lists/'+listid+'/list-entries/'+entryid,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
         });
 
