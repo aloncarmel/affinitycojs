@@ -96,22 +96,118 @@ class AffinitycoJs {
 
     }
     getPerson(personid) {
-        
+        var _self = this;
+        return new Promise(function (resolve, reject) {
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/persons/'+personid,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
+
+        });
     }
     searchPerson(term) {
+        var _self = this;
+        return new Promise(function (resolve, reject) {
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/persons?term='+term,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
+        });
     }
     getOrganization(orgid) {
+        var _self = this;
+        return new Promise(function (resolve, reject) {
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/organizations/'+orgid,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
+        });
     }
     searchOrganization(term) {
+        var _self = this;
+        return new Promise(function (resolve, reject) {
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/organizations?term='+term,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
+        });
     }
     getOpportunity(opid) {
+        var _self = this;
+        return new Promise(function (resolve, reject) {
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/opportunities/'+opid,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
+        });
     }
     searchOpportunities(term) {
+        var _self = this;
+        return new Promise(function (resolve, reject) {
+       
+            axios({
+                method: 'get',
+                url: _self.apiurl+'/opportunities?term='+term,
+                headers: { 
+                'Authorization': 'Basic '+_self.token
+                }
+            })
+            .then(function(response) {
+                resolve(response.data);
+            }).catch(function(error) {
+                reject(error);
+            });
 
+        });
     }
 };
 
