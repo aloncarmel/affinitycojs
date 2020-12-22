@@ -19,10 +19,10 @@ class AffinitycoJs {
         };
     }
     async getAllLists() {
-
+        _self = this;
         return new Promise(function (resolve, reject) {
-        
-            axios.get(this.apiurl+'/lists', {}, this.auth)
+            
+            axios.get(_self.apiurl+'/lists', {}, this.auth)
                 .then(function(response) {
                     resolve(response);
                 }).catch(function(error) {
@@ -33,10 +33,10 @@ class AffinitycoJs {
 
     }
     async getList(listid) {
-
+        _self = this;
         return new Promise(function (resolve, reject) {
         
-            axios.get(this.apiurl+'/lists/'+listid, {}, this.auth)
+            axios.get(_self.apiurl+'/lists/'+listid, {}, this.auth)
                 .then(function(response) {
                     resolve(response);
                 }).catch(function(error) {
@@ -47,10 +47,10 @@ class AffinitycoJs {
 
     }
     async getListEntries(listid) {
-
+        _self = this;
         return new Promise(function (resolve, reject) {
         
-            axios.get(this.apiurl+'/lists/'+listid+'/list-entries', {}, this.auth)
+            axios.get(_self.apiurl+'/lists/'+listid+'/list-entries', {}, this.auth)
                 .then(function(response) {
                     resolve(response);
                 }).catch(function(error) {
@@ -61,10 +61,10 @@ class AffinitycoJs {
 
     }
     getListEntry(entryid) {
-
+        _self = this;
         return new Promise(function (resolve, reject) {
         
-            axios.get(this.apiurl+'/lists/'+listid+'/list-entries/'+entryid, {}, this.auth)
+            axios.get(_self.apiurl+'/lists/'+listid+'/list-entries/'+entryid, {}, this.auth)
                 .then(function(response) {
                     resolve(response);
                 }).catch(function(error) {
